@@ -29,7 +29,7 @@ class NewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let infoBarButtonItem = UIBarButtonItem(
-            title: "Info",
+            title: TitleLabels.infoTitle,
             style: .plain,
             target: self,
             action: #selector(showInfo)

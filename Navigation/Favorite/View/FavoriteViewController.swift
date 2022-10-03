@@ -125,19 +125,19 @@ class FavoriteViewController: UIViewController {
     
     func showFilterAlert() {
         let alertController = UIAlertController(
-            title: "Filter the favorite posts",
-            message: "enter the author's name",
+            title: AlertLabelsText.filterLabel,
+            message: AlertMessageText.filterText,
             preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Filter", style: .default) { action in
+        let action = UIAlertAction(title: AlertButtonText.filterButton, style: .default) { action in
             let textField = alertController.textFields?[0]
             if let text = textField?.text, text != "" {
                 self.fetchFilterFavoritePost(text)
             }
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        
+        let cancel = UIAlertAction(title: AlertButtonText.cancelButton, style: .destructive, handler: nil)
+
         alertController.addTextField { textField in }
         alertController.addAction(action)
         alertController.addAction(cancel)
@@ -152,7 +152,7 @@ class FavoriteViewController: UIViewController {
         do {
             try self.fetchedResultsController.performFetch()
             self.favoriteTableView.reloadData()
-            self.filterPredicateLabel.text = "Filtred by: \"\(author)\""
+            self.filterPredicateLabel.text = "\(LabelsText.filterdLabel) \"\(author)\""
             self.deleteFilterButton.layer.opacity = 1
             self.deleteFilterButton.isEnabled = true
                         

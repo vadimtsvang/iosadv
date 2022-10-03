@@ -16,11 +16,11 @@ final class FeedViewModel {
     
     private lazy var passwordAlert: UIAlertController = {
         let alertController = UIAlertController(
-            title: "Invalid password!",
-            message: "",
+            title: AlertLabelsText.invPassLabel,
+            message: AlertMessageText.emptyText,
             preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        alertController.addAction(UIAlertAction(title: AlertButtonText.okButton, style: .default))
         return alertController
     }()
     

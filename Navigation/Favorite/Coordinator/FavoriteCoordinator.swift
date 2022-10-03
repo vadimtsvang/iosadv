@@ -11,7 +11,7 @@ final class FavoriteCoordinator {
     func showDetail(coordinator: FavoriteCoordinator) -> UIViewController {
         let viewController = FavoriteViewController(coordinator: coordinator)
         viewController.view.backgroundColor = .secondarySystemGroupedBackground
-        viewController.title = "Favorite posts"
+        viewController.title = TitleLabels.favoriteTitle
         return viewController
     }
 }

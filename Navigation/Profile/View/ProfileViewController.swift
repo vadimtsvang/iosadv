@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var signOutBarButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            title: "Sign out",
+            title: NavBarButtonLabels.signOutButtonTitle,
             style: .plain,
             target: self,
             action: #selector(signOutButtonPressed)
@@ -45,11 +45,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var alertController: UIAlertController = {
         let alertController = UIAlertController(
-            title: "Signing out",
-            message: "Do you really want to sign out?",
+            title: AlertLabelsText.signOutLabel,
+            message: AlertMessageText.signOutText,
             preferredStyle: .alert)
         
-        let acceptAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let acceptAction = UIAlertAction(title: AlertButtonText.okButton, style: .default) { _ in
             do {
 //                try Auth.auth().signOut()
                 self.pushLoginViewController()
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         alertController.addAction(acceptAction)
         
-        let declineAction = UIAlertAction(title: "Cancel", style: .destructive)
+        let declineAction = UIAlertAction(title: AlertButtonText.cancelButton, style: .destructive)
         alertController.addAction(declineAction)
 
         return alertController

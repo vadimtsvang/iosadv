@@ -81,7 +81,7 @@ extension MusicViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "   Список треков"
+        return "   \(TitleLabels.musicSectionTitle)"
     }
     
 }

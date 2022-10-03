@@ -11,7 +11,7 @@ final class LocationsCoordinator {
     func showDetail(coordinator: LocationsCoordinator) -> UIViewController {
         let viewController = LocationsViewController(coordinator: coordinator)
         viewController.view.backgroundColor = .secondarySystemGroupedBackground
-        viewController.title = "Locations"
+        viewController.title = TitleLabels.locationsTitle
         return viewController
     }
 }

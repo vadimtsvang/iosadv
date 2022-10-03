@@ -19,7 +19,7 @@ class InfoViewController: UIViewController {
     
     private lazy var showInfoButton: CustomButton = {
         let button = CustomButton (
-            title: "Show info",
+            title: ButtonLabels.showInfoButtonTitle,
             titleColor: .white,
             backColor: .systemIndigo,
             backImage: UIImage()
@@ -106,7 +106,7 @@ class InfoViewController: UIViewController {
         
         residentsTableView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview().inset(16)
-            make.bottom.equalTo(fetchedModelLabel.snp.top).offset(-16)
+            make.bottom.equalTo(view.snp.centerY)
         }
         
         showInfoButton.snp.makeConstraints { make in

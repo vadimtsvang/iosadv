@@ -12,7 +12,7 @@ final class VideoCoordinator {
         let viewModel = VideoViewModel()
         let viewController = VideoViewController(model: viewModel, coordinator: coordinator)
         viewController.view.backgroundColor = .secondarySystemGroupedBackground
-        viewController.title = "Video"
+        viewController.title = TitleLabels.videosTitle
         return viewController
     }
 }
