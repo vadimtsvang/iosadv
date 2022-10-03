@@ -69,18 +69,26 @@ class PostTableViewCell: UITableViewCell {
             postTitle.text = viewModel.title
             postDescription.text = viewModel.description
             postImage.image = viewModel.image
-            postLikesCounter.text = "Likes: \(viewModel.likes)"
-            postViewsCounter.text = "Views: \(viewModel.views)"
+//            postLikesCounter.text = "\(viewModel.likes) \(LabelsText.likesLabel)"
+//            postViewsCounter.text = "\(viewModel.views) \(LabelsText.viewsLabel)"
+            let likesResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, viewModel.likes)
+            let viewsResultLabel: String = String.localizedStringWithFormat(LabelsText.viewsLabel, viewModel.views)
+            self.postLikesCounter.text = likesResultLabel
+            self.postViewsCounter.text = viewsResultLabel
         }
     }
-    /// Для домашки CoreData background
+
     public func configureOfCell (_ post: Post) {
         self.postTitle.text = post.title
         self.postAuthor.text = post.author
         self.postImage.image = post.image
         self.postDescription.text = post.description
-        self.postLikesCounter.text = "Likes: \(post.likes)"
-        self.postViewsCounter.text = "Views: \(post.views)"
+//        self.postLikesCounter.text = "Likes: \(post.likes)"
+//        self.postViewsCounter.text = "Views: \(post.views)"
+        let likesResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, post.likes)
+        let viewsResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, post.views)
+        self.postLikesCounter.text = likesResultLabel
+        self.postViewsCounter.text = viewsResultLabel
     }
     
     public func configureOfCell (_ post: FavoritePostEntity) {

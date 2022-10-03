@@ -19,12 +19,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private var isUserExists: Bool? {
         willSet {
             if newValue! {
-                enterButton.setTitle("Log in", for: .normal)
-                variableButton.setTitle("Don't have an account? Register", for: .normal)
+                enterButton.setTitle(ButtonLabels.loginButtonTitle, for: .normal)
+                variableButton.setTitle(ButtonLabels.switchRegButtonTitle, for: .normal)
 
             } else {
-                enterButton.setTitle("Register", for: .normal)
-                variableButton.setTitle("Already registred? Log in", for: .normal)
+                enterButton.setTitle(ButtonLabels.registerButtonTitle, for: .normal)
+                variableButton.setTitle(ButtonLabels.switchLoginButtonTitle, for: .normal)
             }
         }
     }
@@ -73,13 +73,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private lazy var loginTextField = CustomTextfield (
-        customPlaceholder: "Email or phone",
+        customPlaceholder: TextFieldPlaceholders.loginPlacehodler,
         secure: false,
         iconName: "person"
     )
     
     private lazy var passwordTextField = CustomTextfield (
-        customPlaceholder: "Password",
+        customPlaceholder: TextFieldPlaceholders.passwordPlacehodler,
         secure: true,
         iconName: "lock"
     )
@@ -161,12 +161,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     private func showAlertController(_ description: String) -> UIAlertController {
         let alertController = UIAlertController(
-            title: "⚠️ Error! ⚠️",
+            title: AlertLabelsText.errorLabel,
             message: description,
             preferredStyle: .alert)
         
-        let acceptAction = UIAlertAction(title: "OK", style: .default) { _ in }
-        
+        let acceptAction = UIAlertAction(title: AlertButtonText.okButton, style: .default) { _ in }
+
         alertController.addAction(acceptAction)
         return alertController
     }

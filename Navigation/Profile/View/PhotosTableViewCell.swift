@@ -34,7 +34,7 @@ class PhotosTableViewCell: UITableViewCell {
     private lazy var photosTitle: UILabel = {
         let photosTitle = UILabel()
         photosTitle.numberOfLines = 2
-        photosTitle.text = "Photos"
+        photosTitle.text = TitleLabels.photosCellTitle
         photosTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return photosTitle
     }()

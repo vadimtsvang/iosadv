@@ -36,11 +36,11 @@ extension Constants {
     
     static func showElapsedTimeAlert(navCon: UINavigationController, sec: Double)  {
         let alertController = UIAlertController(
-            title: "Done!",
-            message: "elapsed time: \(timeToString(sec: sec))",
+            title: AlertLabelsText.doneLabel,
+            message: "\(AlertMessageText.elapsedText) \(timeToString(sec: sec))",
             preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        alertController.addAction(UIAlertAction(title: AlertButtonText.okButton, style: .default))
         navCon.present(alertController, animated: true, completion: nil)
     }
 }

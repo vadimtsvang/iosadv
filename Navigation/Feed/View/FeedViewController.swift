@@ -18,7 +18,7 @@ class FeedViewController: UIViewController {
     
     private lazy var newPostButton: CustomButton = {
         let button = CustomButton (
-            title: "New post",
+            title: ButtonLabels.newPostButtonTitle,
             titleColor: .white,
             backColor: ColorSet.mainColor!,
             backImage: UIImage()
@@ -39,7 +39,7 @@ class FeedViewController: UIViewController {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.backgroundColor = .white
-        textField.placeholder = "Enter password..."
+        textField.placeholder = TextFieldPlaceholders.feedPlacehodler
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textField.leftViewMode = .always
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
@@ -49,7 +49,7 @@ class FeedViewController: UIViewController {
     
     private lazy var someButton: CustomButton = {
         let button = CustomButton (
-            title: "Send to model",
+            title: ButtonLabels.sendButtonTitle,
             titleColor: .white,
             backColor: ColorSet.mainColor!,
             backImage: UIImage()
@@ -124,12 +124,12 @@ class FeedViewController: UIViewController {
     // MARK: METHODS
     
     @objc func codeRed() {
-        someLabel.text = "CODE RED"
+        someLabel.text = LabelsText.codeRedLabel
         someLabel.textColor = .red
     }
     
     @objc func codeGreen() {
-        someLabel.text = "CODE GREEN"
+        someLabel.text = LabelsText.codeGreenLabel
         someLabel.textColor = .green
     }
     

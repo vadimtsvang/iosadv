@@ -16,7 +16,7 @@ final class ProfileCoordinator {
             viewModel: viewModel,
             coordinator: coordinator)
         viewController.view.backgroundColor = .systemGray3
-        viewController.title = "Profile"
+        viewController.title = TitleLabels.profileTitle
         return viewController
     }
 }
@@ -26,7 +26,7 @@ final class PhotosCoordinator {
         let viewModel = PhotosViewModel()
         let viewController = PhotosViewController(coordinator: coordinator, viewModel: viewModel)
         viewController.view.backgroundColor = .white
-        viewController.title = "Photo Gallery"
+        viewController.title = TitleLabels.photosTitle
         navCon?.tabBarController?.tabBar.isHidden = true
         navCon?.pushViewController(viewController, animated: true)
     }

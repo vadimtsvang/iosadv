@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  Navigation
+
+  Created by Vadim on 07.09.2022.
+  
+*/
+
+"profile.title" = "Профиль";
+"feed.title" = "Лента";
+"music.title" = "Музыка";
+"videos.title" = "Видео";
+"favorite.title" = "Избранное";
+"locations.title" = "Локации";
+"photos.title" = "Фотогалерея";
+"info.title" = "Информация";
+"newPost.title" = "Новый пост";
+
+"title.photos" = "Фотографии";
+"title.musicSection" = "Мои треки";
+"title.destination" = "Пункт назначения";
+
+"label.codeRed" = "КОД КРАСНЫЙ!";
+"label.codegreen" = "КОД ЗЕЛЕНЫЙ!";
+"label.filtred" = "Отфильтровано по: ";
+
+"textField.login.placehodler" = "Почта или телефон";
+"textField.password.placehodler" = "Пароль";
+"textField.status.placehodler" = "Введите ваш статус";
+"textField.feed.placehodler" = "Введите пароль";
+
+"button.login.title" = "Войти";
+"button.register.title" = "Зарегистрироваться";
+"button.switchLogin.title" = "Уже зарегистрированы? Войти";
+"button.switchReg.title" = "Ещё нет аккаунта? Регистрация";
+"button.setStatus.title" = "Обновить статус";
+"button.newPost.title" = "Новый пост";
+"button.send.title" = "Отправить в модель";
+"button.showInfo.title" = "Показать инфо";
+"button.route.title" = "Маршрут";
+"button.remove.title" = "Удалить";
+
+"navButton.info.title" = "Информация";
+"navButton.signOut.title" = "Выйти";
+
+"alertLabel.done" = "Готово!";
+"alertLabel.error" = "⚠️ Ошибка ⚠️";
+"alertLabel.signOut" = "Выйти из системы";
+"alertLabel.attention" = "⚠️ Внимание! ⚠️";
+"alertLabel.invPas" = "Неверный пароль!";
+"alertLabel.filter" = "Фильтровать избранные посты";
+
+"alertButton.ok" = "Ок";
+"alertButton.cancel" = "Отмена";
+"alertButton.yes" = "Да";
+"alertButton.no" = "Нет";
+"alertButton.filter" = "Применить фильтр";
+
+"alertmessage.elapsed" = "Времени затрачено: ";
+"alertmessage.signOut" = "Вы действительно хотите выйти из системы?";
+"alertmessage.doYouLike" = "Тебе нравится мой проект?";
+"alertmessage.filter" = "введите имя автора";
+"alertmessage.empty" = "";
+
