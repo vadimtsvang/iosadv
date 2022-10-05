@@ -18,12 +18,10 @@ class FeedViewController: UIViewController {
     
     private lazy var newPostButton: CustomButton = {
         let button = CustomButton (
-            title: ButtonLabels.newPostButtonTitle,
-            titleColor: .white,
-            backColor: ColorSet.mainColor!,
-            backImage: UIImage()
+            title: "button.newPost.title".localized,
+            backImage: UIImage(named: "button_pixel") ?? UIImage()
         )
-        button.clipsToBounds = false
+        
         button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         button.layer.shadowRadius = 5.0
         button.layer.shadowColor = UIColor.black.cgColor
@@ -49,10 +47,9 @@ class FeedViewController: UIViewController {
     
     private lazy var someButton: CustomButton = {
         let button = CustomButton (
-            title: ButtonLabels.sendButtonTitle,
+            title: "button.send.title".localized,
             titleColor: .white,
-            backColor: ColorSet.mainColor!,
-            backImage: UIImage()
+            backImage: UIImage(named: "button_pixel") ?? UIImage()
         )
         return button
     }()
@@ -79,6 +76,9 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
+
         self.view.addSubviews(newPostButton, someLabel, someTextField, someButton)
         
         newPostButton.tapAction = { [weak self] in
@@ -121,6 +121,10 @@ class FeedViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
+    }
+    
     // MARK: METHODS
     
     @objc func codeRed() {
@@ -144,5 +148,13 @@ class FeedViewController: UIViewController {
         let coordinator = NewPostCoordinator()
         coordinator.showDetail(navCon: navigationController, coordinator: coordinator)
     }
+}
+
+extension FeedViewController: Themeable {
     
+    func apply(theme: Theme) {
+        self.view.backgroundColor = theme.colors.palette.backgroud
+        self.someTextField.backgroundColor = theme.colors.palette.textfield
+        self.someTextField.textColor = theme.colors.palette.text
+    }
 }

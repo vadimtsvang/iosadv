@@ -21,9 +21,9 @@ final class CustomButton: UIButton {
     
     init (
         title: String = "",
-        titleColor: UIColor,
-        backColor: UIColor,
-        backImage: UIImage
+        titleColor: UIColor = .white,
+        backColor: UIColor = .systemBlue,
+        backImage: UIImage = UIImage()
     ) {
         self.title = title
         self.titleColor = titleColor

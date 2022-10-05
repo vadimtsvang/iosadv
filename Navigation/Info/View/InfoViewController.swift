@@ -19,10 +19,8 @@ class InfoViewController: UIViewController {
     
     private lazy var showInfoButton: CustomButton = {
         let button = CustomButton (
-            title: ButtonLabels.showInfoButtonTitle,
-            titleColor: .white,
-            backColor: .systemIndigo,
-            backImage: UIImage()
+            title: "button.showInfo.title".localized,
+            backImage: UIImage(named: "button_pixel") ?? UIImage()
         )
         return button
     }()
@@ -31,7 +29,7 @@ class InfoViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        label.textColor = ColorSet.mainColor
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -40,7 +38,7 @@ class InfoViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        label.textColor = ColorSet.mainColor
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -149,7 +147,7 @@ extension InfoViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
         cell.textLabel!.text = ResinentsNetworkManager.shared.residents[indexPath.row]
         cell.textLabel!.textColor = .white
-        cell.backgroundColor = ColorSet.mainColor
+        cell.backgroundColor = .white
         return cell
     }
     

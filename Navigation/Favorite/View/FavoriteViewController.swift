@@ -25,7 +25,7 @@ class FavoriteViewController: UIViewController {
             title: "",
             titleColor: .white,
             backColor: .clear,
-            backImage: (UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24))?.withTintColor(.black, renderingMode: .alwaysOriginal))!)
+            backImage: (UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24)))!)
        return button
     }()
     

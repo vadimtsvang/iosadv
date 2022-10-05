@@ -101,8 +101,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         let button = CustomButton(
             title: ButtonLabels.setStatusButtonTitle,
             titleColor: UIColor.white,
-            backColor: UIColor.white,
-            backImage: UIImage(named: "blue_pixel")!
+            backImage: UIImage(named: "button_pixel") ?? UIImage()
         )
         
         return button
@@ -134,6 +133,9 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
             guard let self = self else { return }
             self.hideAvatar()
         }
+        
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+
     }
     
     required init?(coder: NSCoder) {
@@ -246,5 +248,20 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         xmarkButton.snp.makeConstraints { make in
             make.top.trailing.equalTo(contentView).inset(Constants.margin)
         }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+    }
+}
+
+extension ProfileHeaderView: Themeable {
+    
+    func apply(theme: Theme) {
+        self.backgroundColor = theme.colors.palette.backgroud
+        self.nameLabel.textColor = theme.colors.palette.text
+        self.statusLabel.textColor = theme.colors.palette.secondaryText
+        self.statusTextField.backgroundColor = theme.colors.palette.textfield
+        self.statusTextField.textColor = theme.colors.palette.text
     }
 }

@@ -55,7 +55,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let button = CustomButton (
             titleColor: UIColor.white,
             backColor: UIColor.white,
-            backImage: UIImage(named: "blue_pixel") ?? UIImage()
+            backImage: UIImage(named: "button_pixel") ?? UIImage()
         )
         
         button.alpha = 0.5
@@ -67,7 +67,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private lazy var variableButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        button.setTitleColor(ColorSet.mainColor, for: .normal)
         button.addTarget(self, action: #selector(switchLogin), for: .touchUpInside)
         return button
     }()
@@ -259,6 +258,18 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension LogInViewController: Themeable {
+    
+    func apply(theme: Theme) {
+        self.view.backgroundColor = theme.colors.palette.backgroud
+        self.loginTextField.backgroundColor = theme.colors.palette.textfield
+        self.passwordTextField.backgroundColor = theme.colors.palette.textfield
+        self.loginTextField.textColor = theme.colors.palette.text
+        self.passwordTextField.textColor = theme.colors.palette.text
+        self.variableButton.setTitleColor(theme.colors.palette.interactiveText, for: .normal)
     }
 }
 
