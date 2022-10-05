@@ -35,10 +35,16 @@ class MusicTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+    }
+    
     // MARK: METHODS ===================================================================================
 
     func setupLayout() {
                 
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+        
         musicIcon.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview().inset(12)
         }
@@ -60,5 +66,14 @@ class MusicTableViewCell: UITableViewCell {
         }
         
         trackNameLabel.text = currentTrackName
+    }
+}
+
+extension MusicTableViewCell: Themeable {
+    
+    func apply(theme: Theme) {
+        self.contentView.backgroundColor = theme.colors.palette.cell
+        self.trackNameLabel.textColor = theme.colors.palette.text
+        self.musicIcon.tintColor = theme.colors.palette.foregroud
     }
 }

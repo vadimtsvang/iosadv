@@ -45,11 +45,19 @@ class MusicViewController: UIViewController {
                 describing: MusicTableViewCell.self)
         )
 
-        view.addSubviews(tableView, playerView)
         setupLayout()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
     }
 
     private func setupLayout() {
+        
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
+        
+        view.addSubviews(tableView, playerView)
+
         tableView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
             make.bottom.equalTo(playerView.snp.top)
@@ -91,5 +99,12 @@ extension MusicViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playerView.playSelectedTrack(forIndex: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension MusicViewController: Themeable {
+    
+    func apply(theme: Theme) {
+        self.view.backgroundColor = theme.colors.palette.backgroud
     }
 }

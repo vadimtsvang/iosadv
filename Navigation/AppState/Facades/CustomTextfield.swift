@@ -37,7 +37,7 @@ final class CustomTextfield: UITextField {
         font = UIFont.systemFont(ofSize: 16)
         
         let icon = UIImageView(image: UIImage(systemName: iconName))
-        icon.tintColor = ColorSet.mainColor
+        //icon.tintColor = ColorSet.mainColor
         leftView = textFieldIcon(subView: icon)
         
         autocorrectionType = .no

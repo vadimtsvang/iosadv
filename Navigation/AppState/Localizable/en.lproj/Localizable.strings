@@ -1,0 +1,63 @@
+/* 
+Localizable.strings
+Navigation
+
+Created by Vadim on 07.09.2022.
+
+*/
+
+"profile.title" = "Profile";
+"feed.title" = "Feed";
+"music.title" = "Music";
+"videos.title" = "Video";
+"favorite.title" = "Favorite";
+"locations.title" = "Locations";
+"photos.title" = "Photos Gallery";
+"info.title" = "Info";
+"newPost.title" = "New post";
+
+
+"title.photos" = "Photos";
+"title.musicSection" = "My music tracks";
+"title.destination" = "Destination point";
+
+"label.codeRed" = "CODE RED!";
+"label.codegreen" = "CODE GREEN!";
+"label.filtred" = "Filtred by: ";
+
+"textField.login.placehodler" = "Email or phone";
+"textField.password.placehodler" = "Password";
+"textField.status.placehodler" = "Enter your status";
+"textField.feed.placehodler" = "Enter Password";
+
+"button.login.title" = "Log in";
+"button.register.title" = "Register";
+"button.switchLogin.title" = "Already registred? Log in";
+"button.switchReg.title" = "Don't have an account? Register";
+"button.setStatus.title" = "Set status";
+"button.newPost.title" = "New post";
+"button.send.title" = "Send to model";
+"button.showInfo.title" = "Show info";
+"button.route.title" = "Route";
+"button.remove.title" = "Remove";
+
+"navButton.info.title" = "Info";
+"navButton.signOut.title" = "Sign out";
+
+"alertLabel.done" = "Dome!";
+"alertLabel.error" = "⚠️ Error ⚠️";
+"alertLabel.signOut" = "Signing out";
+"alertLabel.attention" = "⚠️ Attention! ⚠️";
+"alertLabel.invPas" = "Invalid password!";
+"alertLabel.filter" = "Filter the favorite posts";
+"alertButton.ok" = "OK";
+"alertButton.cancel" = "Cancel";
+"alertButton.yes" = "Yes";
+"alertButton.no" = "No";
+"alertButton.filter" = "Filter";
+"alertmessage.elapsed" = "Time elapsed: ";
+"alertmessage.signOut" = "Do you really want to sign out?";
+"alertmessage.doYouLike" = "Do you like that?";
+"alertmessage.filter" = "enter the author's name";
+"alertmessage.empty" = "";
+

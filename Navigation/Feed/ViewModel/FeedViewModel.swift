@@ -70,7 +70,7 @@ final class FeedViewModel {
         someButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(textField.snp.bottom).offset(16)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
             make.height.equalTo(50)
         }
     }

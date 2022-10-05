@@ -33,7 +33,7 @@ class MusicPlayerView: UIView {
     private lazy var trackNameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textColor = .black
+//        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textAlignment = .left
         return label
@@ -63,7 +63,9 @@ class MusicPlayerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: METHODS =================================================================================================
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+    }
     
     private func setTrack() {
         let trackName = Array(MusicViewModel.tracks.keys)[counter]
@@ -89,6 +91,8 @@ class MusicPlayerView: UIView {
     
     private func setuplayout() {
         
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+        
         playerButtonsStackView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview().inset(32)
         }
@@ -102,8 +106,7 @@ class MusicPlayerView: UIView {
     
     // MARK: OBJC METHODS =================================================================================================
 
-    @objc
-    private func nextTrackAction () {
+    @objc private func nextTrackAction () {
         if counter == MusicViewModel.tracks.count - 1 {
             counter = 0
         } else {
@@ -146,6 +149,19 @@ class MusicPlayerView: UIView {
         player.stop()
         player.currentTime = 0
         playPauseButton.setCustomImage(name: "play.fill", size: 32)
+    }
+}
+
+extension MusicPlayerView: Themeable {
+    
+    func apply(theme: Theme) {
+        self.backgroundColor = theme.colors.palette.foregroud
+        
+        [playPauseButton,
+         stopButton,
+         nextTrackButton,
+         previousTrackButton].forEach( { $0.tintColor = theme.colors.palette.foregroud } )
+        trackNameLabel.textColor = theme.colors.palette.text
     }
 }
 

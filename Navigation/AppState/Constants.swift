@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Constants {
+internal struct Constants {
     
     static let margin: CGFloat = 16
     static let offset: CGFloat = 20
@@ -21,10 +21,12 @@ struct Constants {
         appearance.backgroundColor = UIColor.systemGray5
         return appearance
     }()
+    
+//    static let interfaceStyle = UITraitCollection().userInterfaceStyle
 }
 
 // MARK: - Task 8: for asynchronous development and multithreading
-extension Constants {
+internal extension Constants {
     
     static func timeToString(sec: Double) -> String {
         let minutes = Int(sec) / 60
@@ -36,49 +38,11 @@ extension Constants {
     
     static func showElapsedTimeAlert(navCon: UINavigationController, sec: Double)  {
         let alertController = UIAlertController(
-            title: AlertLabelsText.doneLabel,
-            message: "\(AlertMessageText.elapsedText) \(timeToString(sec: sec))",
+            title: "alertLabel.done".localized,
+            message: "\("alertmessage.elapsed".localized) \(timeToString(sec: sec))",
             preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: AlertButtonText.okButton, style: .default))
+        alertController.addAction(UIAlertAction(title: "alertButton.ok".localized, style: .default))
         navCon.present(alertController, animated: true, completion: nil)
     }
 }
-public extension UIView {
-    
-    func addSubviews(_ subviews: UIView...) {
-          subviews.forEach { addSubview($0) }
-      }
-    
-    func getButton (icon name: String, action: Selector ) -> UIButton {
-        let button = UIButton()
-        button.setCustomImage(name: name, size: 32)
-        button.addTarget(self, action: action, for: .touchUpInside)
-        return button
-    }
-
-}
-
-public extension UIButton {
-    
-    func setCustomImage (name: String, size: CGFloat) {
-        setImage((UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: size))?.withTintColor(.black, renderingMode: .alwaysOriginal))!, for: .normal)
-    }
-}
-
-
-public extension NSNotification.Name {
-    static let codeRed = NSNotification.Name("codeRed")
-    static let codeGreen = NSNotification.Name("codeGreen")
-    static let residentsFetchingEnded = NSNotification.Name("residentsFetchingEnded")
-    static let postDoubleTap = NSNotification.Name("postDoubleTap")
-}
-
-public extension UIViewController {
-    
-    func getIcon (_ name: String, _ size: CGFloat) -> UIImage {
-        UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: size))?.withTintColor(.white, renderingMode: .alwaysOriginal) ?? UIImage()
-    }
-}
-
-

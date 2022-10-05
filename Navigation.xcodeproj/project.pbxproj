@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F2B761B28EAC43D0001CFD6 /* Localizable En.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B761528EAC43D0001CFD6 /* Localizable En.stringsdict */; };
-		1F2B761C28EAC43D0001CFD6 /* Localizable Ru.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B761628EAC43D0001CFD6 /* Localizable Ru.strings */; };
-		1F2B761D28EAC43D0001CFD6 /* Localizable Ru.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B761728EAC43D0001CFD6 /* Localizable Ru.stringsdict */; };
-		1F2B761E28EAC43D0001CFD6 /* Localizable En.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B761928EAC43D0001CFD6 /* Localizable En.strings */; };
 		1F2B762028EAC7560001CFD6 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B761F28EAC7560001CFD6 /* Labels.swift */; };
+		1F2B764D28ED7F4A0001CFD6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B764C28ED7F4A0001CFD6 /* Extentions.swift */; };
+		1F2B764F28ED80BD0001CFD6 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B764E28ED80BC0001CFD6 /* ColorTheme.swift */; };
+		1F2B765128ED8BC00001CFD6 /* Localizable in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B765028ED8BC00001CFD6 /* Localizable */; };
 		D500D731287F594F00ED1FBA /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D730287F594F00ED1FBA /* FavoriteViewController.swift */; };
 		D500D734287F598E00ED1FBA /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D733287F598E00ED1FBA /* FavoriteCoordinator.swift */; };
 		D500D736287F59D200ED1FBA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D735287F59D200ED1FBA /* CoreDataManager.swift */; };
@@ -124,11 +123,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F2B761528EAC43D0001CFD6 /* Localizable En.stringsdict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.stringsdict; path = "Localizable En.stringsdict"; sourceTree = "<group>"; };
-		1F2B761628EAC43D0001CFD6 /* Localizable Ru.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "Localizable Ru.strings"; sourceTree = "<group>"; };
-		1F2B761828EAC43D0001CFD6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = "../../../../../Downloads/Navigation-feature-iosadv-task-2/Navigation/AppState/Localizable/ru.lproj/Localizable Ru.stringsdict"; sourceTree = "<group>"; };
-		1F2B761A28EAC43D0001CFD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "../../../../../Downloads/Navigation-feature-iosadv-task-2/Navigation/AppState/Localizable/en.lproj/Localizable En.strings"; sourceTree = "<group>"; };
 		1F2B761F28EAC7560001CFD6 /* Labels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		1F2B764C28ED7F4A0001CFD6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		1F2B764E28ED80BC0001CFD6 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		1F2B765028ED8BC00001CFD6 /* Localizable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Localizable; sourceTree = "<group>"; };
 		D500D730287F594F00ED1FBA /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		D500D733287F598E00ED1FBA /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		D500D735287F59D200ED1FBA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -230,17 +228,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F2B761028EAC3830001CFD6 /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				1F2B761928EAC43D0001CFD6 /* Localizable En.strings */,
-				1F2B761628EAC43D0001CFD6 /* Localizable Ru.strings */,
-				1F2B761728EAC43D0001CFD6 /* Localizable Ru.stringsdict */,
-				1F2B761528EAC43D0001CFD6 /* Localizable En.stringsdict */,
-			);
-			path = Localizable;
-			sourceTree = "<group>";
-		};
 		D500D732287F596300ED1FBA /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,16 +584,18 @@
 		D5E9222B2816A84200748286 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
-				1F2B761028EAC3830001CFD6 /* Localizable */,
+				1F2B765028ED8BC00001CFD6 /* Localizable */,
 				D5ED095F27B5A423007F70C6 /* AppDelegate.swift */,
 				D5E922292816A81F00748286 /* Factory.swift */,
 				D5DF549828577F6800FECC98 /* User.swift */,
 				D562464527C826350022DDFC /* Constants.swift */,
 				D52F469D27D4E224002BD753 /* ColorSet.swift */,
+				1F2B764E28ED80BC0001CFD6 /* ColorTheme.swift */,
 				D5AB1A4C27D2B6880072E723 /* ContentManager.swift */,
 				D541A0DB285B416000ADFEB3 /* NetworkService.swift */,
 				D541A0DD285B60B000ADFEB3 /* AppConfiguration.swift */,
 				1F2B761F28EAC7560001CFD6 /* Labels.swift */,
+				1F2B764C28ED7F4A0001CFD6 /* Extentions.swift */,
 				D5BDB01728705D470089D530 /* Facades */,
 			);
 			path = AppState;
@@ -737,7 +726,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					D506109028061EBF00BC51AC = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -795,12 +784,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2B765128ED8BC00001CFD6 /* Localizable in Resources */,
 				D5ED096C27B5A428007F70C6 /* LaunchScreen.storyboard in Resources */,
-				1F2B761E28EAC43D0001CFD6 /* Localizable En.strings in Resources */,
-				1F2B761C28EAC43D0001CFD6 /* Localizable Ru.strings in Resources */,
 				D5ED096927B5A428007F70C6 /* Assets.xcassets in Resources */,
-				1F2B761D28EAC43D0001CFD6 /* Localizable Ru.stringsdict in Resources */,
-				1F2B761B28EAC43D0001CFD6 /* Localizable En.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +823,7 @@
 				D5CC1EEB282D954600137A94 /* MainCoordinator.swift in Sources */,
 				D54536FC287AE0C900B5A64D /* LoginInspector.swift in Sources */,
 				D5B669652866584C00C699C1 /* ResidentsNetworkManager.swift in Sources */,
+				1F2B764F28ED80BD0001CFD6 /* ColorTheme.swift in Sources */,
 				D56E238228C8C0BB002E094D /* LocationsCoordinator.swift in Sources */,
 				D5ED097827B66965007F70C6 /* NewPostViewController.swift in Sources */,
 				D5851F202864E50600D65A51 /* PlanetsNetworkManager.swift in Sources */,
@@ -884,6 +871,7 @@
 				D59DA3E028957211000009EF /* CoreDataStack.swift in Sources */,
 				D5AB1A4D27D2B6880072E723 /* ContentManager.swift in Sources */,
 				D52F469E27D4E224002BD753 /* ColorSet.swift in Sources */,
+				1F2B764D28ED7F4A0001CFD6 /* Extentions.swift in Sources */,
 				D5A529FA2854AECE00A0DB32 /* MusicPlayerView.swift in Sources */,
 				D54536FF287AE21F00B5A64D /* LoginViewControllerDelegate.swift in Sources */,
 				D562464427C810490022DDFC /* PostTableViewCell.swift in Sources */,
@@ -913,22 +901,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1F2B761728EAC43D0001CFD6 /* Localizable Ru.stringsdict */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F2B761828EAC43D0001CFD6 /* ru */,
-			);
-			name = "Localizable Ru.stringsdict";
-			sourceTree = "<group>";
-		};
-		1F2B761928EAC43D0001CFD6 /* Localizable En.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1F2B761A28EAC43D0001CFD6 /* en */,
-			);
-			name = "Localizable En.strings";
-			sourceTree = "<group>";
-		};
 		D5ED096A27B5A428007F70C6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -959,7 +931,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.StorageService;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.StorageService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -989,7 +961,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.StorageService;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.StorageService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1009,7 +981,7 @@
 				DEVELOPMENT_TEAM = KY382G7762;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.StorageServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.StorageServiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1027,7 +999,7 @@
 				DEVELOPMENT_TEAM = KY382G7762;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.StorageServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.StorageServiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1040,6 +1012,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1101,6 +1074,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1181,7 +1155,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.Navigation;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.Navigation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1218,7 +1192,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = savie.Navigation;
+				PRODUCT_BUNDLE_IDENTIFIER = vadimtsvang.Navigation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
