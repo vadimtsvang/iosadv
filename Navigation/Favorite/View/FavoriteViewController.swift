@@ -25,7 +25,8 @@ class FavoriteViewController: UIViewController {
             title: "",
             titleColor: .white,
             backColor: .clear,
-            backImage: (UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24)))!)
+            backImage: (UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24)))!
+        )
        return button
     }()
     
@@ -99,6 +100,7 @@ class FavoriteViewController: UIViewController {
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         favoriteTableView.reloadData()
@@ -125,19 +127,19 @@ class FavoriteViewController: UIViewController {
     
     func showFilterAlert() {
         let alertController = UIAlertController(
-            title: AlertLabelsText.filterLabel,
-            message: AlertMessageText.filterText,
+            title: "alertLabel.filter".localized,
+            message: "alertmessage.filter".localized,
             preferredStyle: .alert)
         
-        let action = UIAlertAction(title: AlertButtonText.filterButton, style: .default) { action in
+        let action = UIAlertAction(title: "alertButton.filter".localized, style: .default) { action in
             let textField = alertController.textFields?[0]
             if let text = textField?.text, text != "" {
                 self.fetchFilterFavoritePost(text)
             }
         }
         
-        let cancel = UIAlertAction(title: AlertButtonText.cancelButton, style: .destructive, handler: nil)
-
+        let cancel = UIAlertAction(title: "alertButton.cancel".localized, style: .destructive, handler: nil)
+        
         alertController.addTextField { textField in }
         alertController.addAction(action)
         alertController.addAction(cancel)
@@ -152,7 +154,7 @@ class FavoriteViewController: UIViewController {
         do {
             try self.fetchedResultsController.performFetch()
             self.favoriteTableView.reloadData()
-            self.filterPredicateLabel.text = "\(LabelsText.filterdLabel) \"\(author)\""
+            self.filterPredicateLabel.text = "\("label.filtred".localized) \"\(author)\""
             self.deleteFilterButton.layer.opacity = 1
             self.deleteFilterButton.isEnabled = true
                         
@@ -259,3 +261,4 @@ extension FavoriteViewController: NSFetchedResultsControllerDelegate {
         favoriteTableView.endUpdates()
     }
 }
+

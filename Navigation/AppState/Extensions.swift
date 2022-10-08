@@ -1,8 +1,8 @@
 //
-//  Extentions.swift
+//  Extensions.swift
 //  Navigation
 //
-//  Created by Vadim on 05.10.2022.
+//  Created by Vadim on 08.09.2022.
 //
 
 import Foundation
@@ -20,6 +20,10 @@ public extension UIView {
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
     }
+    
+    func getIcon (_ name: String, _ size: CGFloat = 32, _ color: UIColor) -> UIImage {
+        UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: size))?.withTintColor(color, renderingMode: .alwaysOriginal) ?? UIImage()
+    }
 
 }
 
@@ -36,13 +40,12 @@ public extension NSNotification.Name {
     static let codeGreen = NSNotification.Name("codeGreen")
     static let residentsFetchingEnded = NSNotification.Name("residentsFetchingEnded")
     static let postDoubleTap = NSNotification.Name("postDoubleTap")
+    static let showFeed = NSNotification.Name("showFeed")
+    static let showMusic = NSNotification.Name("showMusic")
+
 }
 
 public extension UIViewController {
-    
-    func getIcon (_ name: String, _ size: CGFloat) -> UIImage {
-        UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: size))?.withTintColor(.white, renderingMode: .alwaysOriginal) ?? UIImage()
-    }
     
     var interfaceStyle: UIUserInterfaceStyle { traitCollection.userInterfaceStyle }
 }
@@ -58,7 +61,6 @@ extension UIColor {
 }
 
 extension UIColor {
-    
     class func rgb(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ alpha: CGFloat) -> UIColor {
         return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: alpha)
     }

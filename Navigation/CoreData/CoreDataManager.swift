@@ -32,6 +32,8 @@ final class CoreDataManager {
         return fetchedResultsController
     }
     
+    
+        
     // MARK: METHODS
     
    public func saveFavourite (post: Post) {

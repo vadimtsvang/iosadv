@@ -10,4 +10,5 @@ import Foundation
 protocol LoginViewControllerDelegate: AnyObject {
     
     func signing (signType: SignType, log: String, pass: String)
+    
 }

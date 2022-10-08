@@ -37,7 +37,7 @@ class FeedViewController: UIViewController {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.backgroundColor = .white
-        textField.placeholder = TextFieldPlaceholders.feedPlacehodler
+        textField.placeholder = "textField.feed.placehodler".localized
         textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textField.leftViewMode = .always
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
@@ -128,12 +128,12 @@ class FeedViewController: UIViewController {
     // MARK: METHODS
     
     @objc func codeRed() {
-        someLabel.text = LabelsText.codeRedLabel
+        someLabel.text = "label.codeRed".localized
         someLabel.textColor = .red
     }
     
     @objc func codeGreen() {
-        someLabel.text = LabelsText.codeGreenLabel
+        someLabel.text = "label.codeGreen".localized
         someLabel.textColor = .green
     }
     
@@ -148,6 +148,7 @@ class FeedViewController: UIViewController {
         let coordinator = NewPostCoordinator()
         coordinator.showDetail(navCon: navigationController, coordinator: coordinator)
     }
+    
 }
 
 extension FeedViewController: Themeable {

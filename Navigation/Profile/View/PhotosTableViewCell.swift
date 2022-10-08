@@ -34,7 +34,7 @@ class PhotosTableViewCell: UITableViewCell {
     private lazy var photosTitle: UILabel = {
         let photosTitle = UILabel()
         photosTitle.numberOfLines = 2
-        photosTitle.text = TitleLabels.photosCellTitle
+        photosTitle.text = "title.photos".localized
         photosTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return photosTitle
     }()
@@ -71,6 +71,8 @@ class PhotosTableViewCell: UITableViewCell {
     
     private func setupLayout(){
         
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+        
         photosTitle.snp.makeConstraints { make in
             make.leading.top.equalTo(contentView).inset(12)
         }
@@ -89,7 +91,20 @@ class PhotosTableViewCell: UITableViewCell {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+}
+
+extension PhotosTableViewCell: Themeable {
+    func apply(theme: Theme) {
+        self.photosTitle.textColor = theme.colors.palette.text
+        self.arrowImage.tintColor  = theme.colors.palette.text
+    }
+    
+    
 }

@@ -19,3 +19,4 @@ enum AppConfiguration: String, CaseIterable {
         AppConfiguration.allCases.randomElement()?.rawValue ?? "Eroor to get the random URL"
     }
 }
+

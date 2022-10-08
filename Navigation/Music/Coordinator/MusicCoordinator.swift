@@ -12,7 +12,7 @@ final class MusicCoordinator {
         let viewModel = MusicViewModel()
         let viewController = MusicViewController(model: viewModel, coordinator: coordinator)
         viewController.view.backgroundColor = .secondarySystemGroupedBackground
-        viewController.title = TitleLabels.musicTitle
+        viewController.title = "music.title".localized
         return viewController
     }
 }

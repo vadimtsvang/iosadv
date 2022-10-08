@@ -11,7 +11,7 @@ import SnapKit
 class InfoViewController: UIViewController {
     
     
-    // MARK: PROPERTIES =======================================================================
+    // MARK: PROPERTIES
     
     private var networkManager = ResinentsNetworkManager()
     private var viewModel: InfoViewModel?
@@ -104,7 +104,7 @@ class InfoViewController: UIViewController {
         
         residentsTableView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview().inset(16)
-            make.bottom.equalTo(view.snp.centerY)
+            make.bottom.equalTo(view.snp.centerY).offset(-16)
         }
         
         showInfoButton.snp.makeConstraints { make in

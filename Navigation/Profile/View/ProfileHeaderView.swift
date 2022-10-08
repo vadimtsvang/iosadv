@@ -78,7 +78,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         statusTextField.layer.borderColor = UIColor.black.cgColor
         statusTextField.backgroundColor = .white
         
-        statusTextField.placeholder = TextFieldPlaceholders.statusPlacehodler
+        statusTextField.placeholder = "textField.status.placehodler".localized
         statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         statusTextField.textColor = .black
         statusTextField.leftViewMode = .always
@@ -99,7 +99,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
     
     private lazy var showStatusButton: CustomButton = {
         let button = CustomButton(
-            title: ButtonLabels.setStatusButtonTitle,
+            title: "button.setStatus.title".localized,
             titleColor: UIColor.white,
             backImage: UIImage(named: "button_pixel") ?? UIImage()
         )

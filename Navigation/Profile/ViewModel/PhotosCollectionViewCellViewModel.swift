@@ -15,4 +15,6 @@ class PhotosCollectionViewCellViewModel {
     init (image: UIImage) {
         self.image = image
     }
+      
 }
+
