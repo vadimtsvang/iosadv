@@ -2,7 +2,7 @@
 //  ColorTheme.swift
 //  Navigation
 //
-//  Created by Vadim on 05.10.2022.
+//  Created by Vadim on 08.09.2022.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ struct Theme {
         case dark
     }
     let type: ThemeType
-    let colors: ColorPalette
+    let colors: ColorPalette 
 }
 
 extension Theme {

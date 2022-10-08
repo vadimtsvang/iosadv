@@ -17,4 +17,5 @@ struct Post {
     var likes: Int
     var views: Int
     var personalID: String
+
 }

@@ -13,3 +13,4 @@ class LoginInspector: LoginViewControllerDelegate {
         UserValidation.shared.checkUser( signType: signType, log: log, pass: pass)
     }
 }
+

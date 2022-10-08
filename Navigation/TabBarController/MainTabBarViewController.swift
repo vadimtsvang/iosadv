@@ -20,8 +20,31 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.backgroundColor = UIColor.systemGray5
-
         setControllers()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(showFeed),
+            name: NSNotification.Name.showFeed,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(showMusic),
+            name: NSNotification.Name.showMusic,
+            object: nil
+        )
+    }
+    
+    @objc
+    private func showFeed() {
+        selectedIndex = 1
+    }
+    
+    @objc
+    private func showMusic() {
+        selectedIndex = 2
     }
     
     private func setControllers() {
@@ -34,4 +57,5 @@ class MainTabBarViewController: UITabBarController {
             locationsViewController.navigationController
         ]
     }
+
 }

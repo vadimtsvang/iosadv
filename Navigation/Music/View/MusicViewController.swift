@@ -89,7 +89,7 @@ extension MusicViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "   \(TitleLabels.musicSectionTitle)"
+        return "   \("title.musicSection".localized)"
     }
     
 }

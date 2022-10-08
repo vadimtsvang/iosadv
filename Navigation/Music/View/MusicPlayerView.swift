@@ -11,7 +11,7 @@ import SnapKit
 
 class MusicPlayerView: UIView {
     
-    // MARK: PROPERTIES =============================================================================================
+    // MARK: PROPERTIES
     
     private var player = AVAudioPlayer()
     private var model = MusicViewModel()
@@ -25,15 +25,15 @@ class MusicPlayerView: UIView {
         }
     }
     
-    private lazy var playPauseButton = getButton(icon: "play.fill", action: #selector(playPauseButtonAction))
-    private lazy var stopButton = getButton(icon: "stop.fill", action: #selector(stopButtonAction))
-    private lazy var nextTrackButton = getButton(icon: "forward.fill", action: #selector(nextTrackAction))
-    private lazy var previousTrackButton = getButton(icon: "backward.fill", action: #selector(prevTrackAction))
+    private lazy var playPauseButton = CustomIcon(name: "play.fill")
+    private lazy var stopButton = CustomIcon(name: "stop.fill")
+    private lazy var nextTrackButton = CustomIcon(name: "forward.fill")
+    private lazy var previousTrackButton = CustomIcon(name: "backward.fill")
+    
     
     private lazy var trackNameLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-//        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         label.textAlignment = .left
         return label
@@ -50,13 +50,14 @@ class MusicPlayerView: UIView {
     }()
     
     
-    // MARK: INITS =================================================================================================
+    // MARK: INITS
     
     init () {
         super.init(frame: .zero)
         addSubviews(playerButtonsStackView, trackNameLabel)
-        setuplayout()
+        setupLayout()
         setTrack()
+        setActions()
     }
     
     required init?(coder: NSCoder) {
@@ -66,6 +67,8 @@ class MusicPlayerView: UIView {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
     }
+    
+    // MARK: METHODS
     
     private func setTrack() {
         let trackName = Array(MusicViewModel.tracks.keys)[counter]
@@ -86,10 +89,10 @@ class MusicPlayerView: UIView {
         counter = index
         setTrack()
         player.play()
-        playPauseButton.setCustomImage(name: "pause.fill", size: 32)
+        playPauseButton = CustomIcon(name: "pause.fill")
     }
     
-    private func setuplayout() {
+    private func setupLayout() {
         
         apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
         
@@ -103,10 +106,33 @@ class MusicPlayerView: UIView {
         }
     }
     
+    private func setActions() {
+        playPauseButton.tapAction = { [weak self] in
+            guard let self = self else { return }
+            self.playPauseButtonAction()
+            }
+        
+         stopButton.tapAction = { [weak self] in
+             guard let self = self else { return }
+             self.stopButtonAction()
+             }
+        
+         nextTrackButton.tapAction = { [weak self] in
+             guard let self = self else { return }
+             self.nextTrackAction()
+             }
+        
+         previousTrackButton.tapAction = { [weak self] in
+             guard let self = self else { return }
+             self.prevTrackAction()
+             }
+    }
     
-    // MARK: OBJC METHODS =================================================================================================
-
-    @objc private func nextTrackAction () {
+    
+    // MARK: OBJC METHODS
+    
+    @objc
+    private func nextTrackAction () {
         if counter == MusicViewModel.tracks.count - 1 {
             counter = 0
         } else {
@@ -135,11 +161,11 @@ class MusicPlayerView: UIView {
         
         if player.isPlaying {
             player.pause()
-            playPauseButton.setCustomImage(name: "play.fill", size: 32)
+            playPauseButton = CustomIcon(name: "play.fill")
             
         } else {
             player.play()
-            playPauseButton.setCustomImage(name: "pause.fill", size: 32)
+            playPauseButton = CustomIcon(name: "pause.fill")
         }
     }
     
@@ -148,7 +174,7 @@ class MusicPlayerView: UIView {
     private func stopButtonAction() {
         player.stop()
         player.currentTime = 0
-        playPauseButton.setCustomImage(name: "play.fill", size: 32)
+        playPauseButton = CustomIcon(name: "play.fill")
     }
 }
 
@@ -160,8 +186,7 @@ extension MusicPlayerView: Themeable {
         [playPauseButton,
          stopButton,
          nextTrackButton,
-         previousTrackButton].forEach( { $0.tintColor = theme.colors.palette.foregroud } )
+         previousTrackButton].forEach( { $0.color = theme.colors.palette.foregroud } )
         trackNameLabel.textColor = theme.colors.palette.text
     }
 }
-

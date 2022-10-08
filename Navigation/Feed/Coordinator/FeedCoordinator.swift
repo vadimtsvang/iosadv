@@ -12,7 +12,7 @@ final class FeedCoordinator {
         let viewModel = FeedViewModel()
         let viewController = FeedViewController(model: viewModel, coordinator: coordinator)
         viewController.view.backgroundColor = .secondarySystemGroupedBackground
-        viewController.title = TitleLabels.feedTitle
+        viewController.title = "feed.title".localized
         return viewController
     }
 }
@@ -23,7 +23,7 @@ final class NewPostCoordinator {
         let viewModel = NewPostViewModel()
         let viewController = NewPostViewController(viewModel: viewModel, coordinator: coordinator)
         viewController.view.backgroundColor = .systemGray5
-        viewController.title = TitleLabels.newPostTitle
+        viewController.title = "newPost.title".localized
         navCon?.pushViewController(viewController, animated: true)
     }
 }

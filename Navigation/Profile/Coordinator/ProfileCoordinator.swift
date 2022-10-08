@@ -15,8 +15,7 @@ final class ProfileCoordinator {
             name: "testname",
             viewModel: viewModel,
             coordinator: coordinator)
-        viewController.view.backgroundColor = .systemGray3
-        viewController.title = TitleLabels.profileTitle
+        viewController.title = "profile.title".localized
         return viewController
     }
 }
@@ -26,7 +25,7 @@ final class PhotosCoordinator {
         let viewModel = PhotosViewModel()
         let viewController = PhotosViewController(coordinator: coordinator, viewModel: viewModel)
         viewController.view.backgroundColor = .white
-        viewController.title = TitleLabels.photosTitle
+        viewController.title = "photos.title".localized
         navCon?.tabBarController?.tabBar.isHidden = true
         navCon?.pushViewController(viewController, animated: true)
     }

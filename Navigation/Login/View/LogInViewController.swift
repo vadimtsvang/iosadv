@@ -19,12 +19,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private var isUserExists: Bool? {
         willSet {
             if newValue! {
-                enterButton.setTitle(ButtonLabels.loginButtonTitle, for: .normal)
-                variableButton.setTitle(ButtonLabels.switchRegButtonTitle, for: .normal)
+                enterButton.setTitle("button.login.title".localized, for: .normal)
+                variableButton.setTitle("button.switchReg.title".localized, for: .normal)
 
             } else {
-                enterButton.setTitle(ButtonLabels.registerButtonTitle, for: .normal)
-                variableButton.setTitle(ButtonLabels.switchLoginButtonTitle, for: .normal)
+                enterButton.setTitle("button.register.title".localized, for: .normal)
+                variableButton.setTitle("button.switchLogin.title".localized, for: .normal)
             }
         }
     }
@@ -67,27 +67,29 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private lazy var variableButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+//        button.setTitleColor(ColorSet.mainColor, for: .normal)
         button.addTarget(self, action: #selector(switchLogin), for: .touchUpInside)
         return button
     }()
     
     private lazy var loginTextField = CustomTextfield (
-        customPlaceholder: TextFieldPlaceholders.loginPlacehodler,
+        customPlaceholder: "textField.login.placehodler".localized,
         secure: false,
         iconName: "person"
     )
     
     private lazy var passwordTextField = CustomTextfield (
-        customPlaceholder: TextFieldPlaceholders.passwordPlacehodler,
+        customPlaceholder: "textField.password.placehodler".localized,
         secure: true,
         iconName: "lock"
     )
+
 
     // MARK: INITS ======================================================================
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+                        
         isUserExists = true
         
         loginTextField.delegate = self
@@ -160,12 +162,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     private func showAlertController(_ description: String) -> UIAlertController {
         let alertController = UIAlertController(
-            title: AlertLabelsText.errorLabel,
+            title: "alertLabel.error".localized,
             message: description,
             preferredStyle: .alert)
         
-        let acceptAction = UIAlertAction(title: AlertButtonText.okButton, style: .default) { _ in }
-
+        let acceptAction = UIAlertAction(title: "alertButton.ok".localized, style: .default) { _ in }
+        
         alertController.addAction(acceptAction)
         return alertController
     }
@@ -175,9 +177,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     private func setupLayout() {
         
+        apply(theme: self.interfaceStyle == .light ? .light : .dark )
+        
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         view.addSubview(logInScrollView)
         logInScrollView.addSubview(contentView)
         contentView.addSubviews(logo, textFieldsStackView, enterButton, variableButton)
@@ -216,13 +220,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             make.height.equalTo(20)
         }
     }
-    
+        
     //MARK: SUBMETHODS
     
     @objc
     private func switchLogin() {
         isUserExists!.toggle()
     }
+    
     
     @objc
     private func keyboardShow(_ notification: Notification){
@@ -259,6 +264,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: self.interfaceStyle == .light ? .light : .dark )
+    }
 }
 
 extension LogInViewController: Themeable {
@@ -270,6 +279,7 @@ extension LogInViewController: Themeable {
         self.loginTextField.textColor = theme.colors.palette.text
         self.passwordTextField.textColor = theme.colors.palette.text
         self.variableButton.setTitleColor(theme.colors.palette.interactiveText, for: .normal)
+        
     }
 }
 
@@ -285,3 +295,4 @@ fileprivate extension UITextField {
         self.rightViewMode = .always
     }
 }
+

@@ -10,20 +10,16 @@ import SnapKit
 
 class MusicTableViewCell: UITableViewCell {
     
-    // MARK: PROPERTIES ============================================================================
-
+    // MARK: PROPERTIES
+    
+    private lazy var musicIcon = UIImageView()
+        
     private lazy var trackNameLabel: UILabel = {
         let label = UILabel()
         return label
     }()
-    
-    private lazy var musicIcon: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(systemName: "music.note", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32))?.withTintColor(.black, renderingMode: .alwaysOriginal)
-        return image
-    }()
-    
-    // MARK: INITIALIZATORS ============================================================================
+
+    // MARK: INITIALIZATORS
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -39,12 +35,14 @@ class MusicTableViewCell: UITableViewCell {
         apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
     }
     
-    // MARK: METHODS ===================================================================================
+    // MARK: METHODS
 
     func setupLayout() {
-                
-        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
         
+        musicIcon.tintColor = .red
+        
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+
         musicIcon.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview().inset(12)
         }
@@ -72,6 +70,7 @@ class MusicTableViewCell: UITableViewCell {
 extension MusicTableViewCell: Themeable {
     
     func apply(theme: Theme) {
+        self.musicIcon.image = getIcon("music.note", 24, theme.colors.palette.text)
         self.contentView.backgroundColor = theme.colors.palette.cell
         self.trackNameLabel.textColor = theme.colors.palette.text
         self.musicIcon.tintColor = theme.colors.palette.foregroud

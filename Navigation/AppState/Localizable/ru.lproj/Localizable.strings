@@ -62,3 +62,8 @@
 "alertmessage.filter" = "введите имя автора";
 "alertmessage.empty" = "";
 
+"notification.late.title" = "Посмотрите последние обновления";
+"notification.late.body" = "Давненько Вас не было! Проверим, что произошло за день?";
+
+"show.feed" = "Посмотреть новости";
+"show.music" = "Послушать музыку";

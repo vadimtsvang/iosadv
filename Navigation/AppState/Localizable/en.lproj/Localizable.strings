@@ -16,7 +16,6 @@ Created by Vadim on 07.09.2022.
 "info.title" = "Info";
 "newPost.title" = "New post";
 
-
 "title.photos" = "Photos";
 "title.musicSection" = "My music tracks";
 "title.destination" = "Destination point";
@@ -60,4 +59,10 @@ Created by Vadim on 07.09.2022.
 "alertmessage.doYouLike" = "Do you like that?";
 "alertmessage.filter" = "enter the author's name";
 "alertmessage.empty" = "";
+
+"notification.late.title" = "Check out the latest updates";
+"notification.late.body" = "It's been a while since you've been here! Shall we check what happened during the day?";
+
+"show.feed" = "View the news";
+"show.music" = "Listen to music";
 

@@ -182,4 +182,5 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
         let layout = viewModel.collectionViewLayout(collectionView: collectionView)
         return layout
     }
+    
 }

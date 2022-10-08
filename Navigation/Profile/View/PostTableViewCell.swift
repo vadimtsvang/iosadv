@@ -16,7 +16,6 @@ class PostTableViewCell: UITableViewCell {
     static let identifire = "PostTableViewCell"
     
     private lazy var postTitle: UILabel = {
-        
         let postTitle = UILabel()
         postTitle.numberOfLines = 2
         postTitle.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -69,26 +68,12 @@ class PostTableViewCell: UITableViewCell {
             postTitle.text = viewModel.title
             postDescription.text = viewModel.description
             postImage.image = viewModel.image
-//            postLikesCounter.text = "\(viewModel.likes) \(LabelsText.likesLabel)"
-//            postViewsCounter.text = "\(viewModel.views) \(LabelsText.viewsLabel)"
-            let likesResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, viewModel.likes)
-            let viewsResultLabel: String = String.localizedStringWithFormat(LabelsText.viewsLabel, viewModel.views)
+            let likesResultLabel: String = String.localizedStringWithFormat("likes".localized, viewModel.likes)
+            let viewsResultLabel: String = String.localizedStringWithFormat("views".localized, viewModel.views)
             self.postLikesCounter.text = likesResultLabel
             self.postViewsCounter.text = viewsResultLabel
-        }
-    }
 
-    public func configureOfCell (_ post: Post) {
-        self.postTitle.text = post.title
-        self.postAuthor.text = post.author
-        self.postImage.image = post.image
-        self.postDescription.text = post.description
-//        self.postLikesCounter.text = "Likes: \(post.likes)"
-//        self.postViewsCounter.text = "Views: \(post.views)"
-        let likesResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, post.likes)
-        let viewsResultLabel: String = String.localizedStringWithFormat(LabelsText.likesLabel, post.views)
-        self.postLikesCounter.text = likesResultLabel
-        self.postViewsCounter.text = viewsResultLabel
+        }
     }
     
     public func configureOfCell (_ post: FavoritePostEntity) {
@@ -96,8 +81,10 @@ class PostTableViewCell: UITableViewCell {
         self.postAuthor.text = post.author
         self.postImage.image = UIImage(data: post.image ?? Data()) ?? UIImage()
         self.postDescription.text = post.text
-        self.postLikesCounter.text = "Likes: \(post.likes)"
-        self.postViewsCounter.text = "Views: \(post.views)"
+        let likesResultLabel: String = String.localizedStringWithFormat("likes".localized, post.likes)
+        let viewsResultLabel: String = String.localizedStringWithFormat("views".localized, post.views)
+        self.postLikesCounter.text = likesResultLabel
+        self.postViewsCounter.text = viewsResultLabel
     }
     
     
@@ -124,6 +111,8 @@ class PostTableViewCell: UITableViewCell {
     
     private func setupPostLayout(){
         
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+
         postTitle.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(contentView).inset(Constants.margin)
         }
@@ -155,7 +144,21 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: traitCollection.userInterfaceStyle == .light ? .light : .dark)
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
+    }
+}
+
+extension PostTableViewCell: Themeable {
+    func apply(theme: Theme) {
+        self.postTitle.textColor = theme.colors.palette.text
+        self.postAuthor.textColor = theme.colors.palette.secondaryText
+        self.postDescription.textColor = theme.colors.palette.secondaryText
+        self.postLikesCounter.textColor = theme.colors.palette.text
+        self.postViewsCounter.textColor = theme.colors.palette.text
     }
 }

@@ -43,7 +43,7 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes,for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.feedTitle,
+                title: "feed.title".localized,
                 image: UIImage(systemName: "list.bullet.circle"),
                 selectedImage: UIImage(systemName: "list.bullet.circle.fill")
             )
@@ -58,7 +58,7 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes, for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.profileTitle,
+                title: "profile.title".localized,
                 image: UIImage(systemName: "person.circle"),
                 selectedImage: UIImage(systemName:"person.circle.fill")
             )
@@ -69,7 +69,7 @@ final class Factory {
 
             navigationController.setViewControllers([loginViewController], animated: true)
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.profileTitle,
+                title: "profile.title".localized,
                         image: UIImage(systemName: "person.circle"),
                         selectedImage: UIImage(systemName:"person.circle.fill")
                     )
@@ -83,7 +83,7 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes,for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.musicTitle,
+                title: "music.title".localized,
                 image: UIImage(systemName: "music.note.list"),
                 selectedImage: UIImage(systemName: "music.note.list")
             )
@@ -97,7 +97,7 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes,for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.videosTitle,
+                title: "videos.title".localized,
                 image: UIImage(systemName: "video"),
                 selectedImage: UIImage(systemName: "video.fill")
             )
@@ -111,7 +111,7 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes,for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.favoriteTitle,
+                title: "favorite.title".localized,
                 image: UIImage(systemName: "bookmark"),
                 selectedImage: UIImage(systemName: "bookmark.fill")
             )
@@ -125,10 +125,12 @@ final class Factory {
             navigationController.tabBarItem.setTitleTextAttributes(Constants.attributes,for: .normal)
             navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
             navigationController.tabBarItem = UITabBarItem(
-                title: TitleLabels.locationsTitle,
+                title: "locations.title".localized,
                 image: UIImage(systemName: "location"),
                 selectedImage: UIImage(systemName: "location.fill")
             )
+
         }
     }
+    
 }

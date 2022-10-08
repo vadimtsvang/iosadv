@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 
 @main
@@ -19,9 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //         CoreDataManager.shared.removeFromCoreData()
-                
-        window = UIWindow(frame: UIScreen.main.bounds)
         
+        LocalNotificationsService.shared.registeForLatestUpdatesIfPossible()
+        LocalNotificationsService.shared.sendNotification()
+                        
+        window = UIWindow(frame: UIScreen.main.bounds)
+                
         let url = AppConfiguration.randomURL()
         
         let mainCoordinator = MainCoordinator()        
@@ -68,3 +72,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
 }
+
+

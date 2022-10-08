@@ -29,13 +29,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         tableView.separatorInset = .zero
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 220
-        tableView.backgroundColor = .systemGray6
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
     private lazy var signOutBarButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            title: NavBarButtonLabels.signOutButtonTitle,
+            title: "navButton.signOut.title".localized,
             style: .plain,
             target: self,
             action: #selector(signOutButtonPressed)
@@ -45,11 +45,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var alertController: UIAlertController = {
         let alertController = UIAlertController(
-            title: AlertLabelsText.signOutLabel,
-            message: AlertMessageText.signOutText,
+            title: "alertLabel.signOut".localized,
+            message: "alertmessage.signOut".localized,
             preferredStyle: .alert)
         
-        let acceptAction = UIAlertAction(title: AlertButtonText.okButton, style: .default) { _ in
+        let acceptAction = UIAlertAction(title: "alertButton.ok".localized, style: .default) { _ in
             do {
 //                try Auth.auth().signOut()
                 self.pushLoginViewController()
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
         alertController.addAction(acceptAction)
         
-        let declineAction = UIAlertAction(title: AlertButtonText.cancelButton, style: .destructive)
+        let declineAction = UIAlertAction(title: "alertButton.cancel".localized, style: .destructive)
         alertController.addAction(declineAction)
 
         return alertController
@@ -93,6 +93,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
+
         self.navigationItem.rightBarButtonItem  = signOutBarButtonItem
         
         viewModel = ProfileViewModel()
@@ -133,6 +135,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let loginViewController = coordinator.showDetail(coordinator: coordinator)
         navigationController?.pushViewController(loginViewController, animated: true)
         navigationController?.setViewControllers([loginViewController], animated: true)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        apply(theme: self.interfaceStyle == .light ? .light : .dark)
     }
     
     // MARK: OBJC METHODS
@@ -244,3 +250,10 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension ProfileViewController: Themeable {
+    func apply(theme: Theme) {
+        self.view.backgroundColor = theme.colors.palette.backgroud
+    }
+}
+

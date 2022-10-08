@@ -42,3 +42,5 @@ final class PhotosViewModel {
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 }
+
+

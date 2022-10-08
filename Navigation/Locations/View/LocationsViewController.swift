@@ -34,9 +34,9 @@ class LocationsViewController: UIViewController {
     
     private lazy var routeButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.backgroundColor = .systemRed
+        button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 16
-        button.setTitle(ButtonLabels.routeButtonTitle, for: .normal)
+        button.setTitle("button.route.title".localized, for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightGray, for: .highlighted)
         button.addTarget(self, action: #selector(routeButtonPressed), for: .touchUpInside)
@@ -48,9 +48,9 @@ class LocationsViewController: UIViewController {
     
     private lazy var removeButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.backgroundColor = .systemRed
+        button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 16
-        button.setTitle(ButtonLabels.removeButtonTitle, for: .normal)
+        button.setTitle("button.remove.title".localized, for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightGray, for: .highlighted)
         button.addTarget(self, action: #selector(removeButtonPressed), for: .touchUpInside)
@@ -67,9 +67,11 @@ class LocationsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +92,7 @@ class LocationsViewController: UIViewController {
         }
 
         setupLayout()
+                        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -170,7 +173,7 @@ class LocationsViewController: UIViewController {
         
        let pin = MKPointAnnotation()
         pin.coordinate = convertedCoor
-        pin.title = TitleLabels.destinationPointTitle
+        pin.title = "title.destination".localized
         mapView.addAnnotation(pin)
         
         routeButton.isEnabled = true
