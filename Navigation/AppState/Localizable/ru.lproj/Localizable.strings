@@ -60,6 +60,7 @@
 "alertmessage.signOut" = "Вы действительно хотите выйти из системы?";
 "alertmessage.doYouLike" = "Тебе нравится мой проект?";
 "alertmessage.filter" = "введите имя автора";
+"alertmessage.biometric" = "Ошибка авторизации: ";
 "alertmessage.empty" = "";
 
 "notification.late.title" = "Посмотрите последние обновления";
@@ -67,3 +68,5 @@
 
 "show.feed" = "Посмотреть новости";
 "show.music" = "Послушать музыку";
+
+"auth.getAuth" = "Авторизуйтесь, чтобы войти";
