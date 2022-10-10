@@ -58,6 +58,7 @@ Created by Vadim on 07.09.2022.
 "alertmessage.signOut" = "Do you really want to sign out?";
 "alertmessage.doYouLike" = "Do you like that?";
 "alertmessage.filter" = "enter the author's name";
+"alertmessage.biometric" = "Authorization error: ";
 "alertmessage.empty" = "";
 
 "notification.late.title" = "Check out the latest updates";
@@ -66,3 +67,4 @@ Created by Vadim on 07.09.2022.
 "show.feed" = "View the news";
 "show.music" = "Listen to music";
 
+"auth.getAuth" = "Please log in";

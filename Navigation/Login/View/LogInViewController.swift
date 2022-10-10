@@ -72,6 +72,20 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
+    private lazy var biometricsAuthorizationButton: UIButton = {
+        let button = UIButton()
+        
+        let image = LocalAuthorizationService.shared.availableAuthorizationType == .faceID ? "faceid" : "touchid"
+        
+        let normalImage = UIImage(systemName: image, withConfiguration: UIImage.SymbolConfiguration(pointSize: 64))?.withTintColor(.systemGray, renderingMode: .alwaysOriginal) ?? UIImage()
+        let highlightedImage = UIImage(systemName: image, withConfiguration: UIImage.SymbolConfiguration(pointSize: 64))?.withTintColor(.systemGray3, renderingMode: .alwaysOriginal) ?? UIImage()
+        
+        button.setImage(normalImage, for: .normal)
+        button.setImage(highlightedImage, for: .highlighted)
+        button.addTarget(self, action: #selector(biometricsAuthorizationButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var loginTextField = CustomTextfield (
         customPlaceholder: "textField.login.placehodler".localized,
         secure: false,
@@ -160,17 +174,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-    private func showAlertController(_ description: String) -> UIAlertController {
-        let alertController = UIAlertController(
-            title: "alertLabel.error".localized,
-            message: description,
-            preferredStyle: .alert)
-        
-        let acceptAction = UIAlertAction(title: "alertButton.ok".localized, style: .default) { _ in }
-        
-        alertController.addAction(acceptAction)
-        return alertController
-    }
+//    private func showAlertController(_ description: String) -> UIAlertController {
+//        let alertController = UIAlertController(
+//            title: "alertLabel.error".localized,
+//            message: description,
+//            preferredStyle: .alert)
+//
+//        let acceptAction = UIAlertAction(title: "alertButton.ok".localized, style: .default) { _ in }
+//
+//        alertController.addAction(acceptAction)
+//        return alertController
+//    }
     
  
     // MARK: LAYOUT
@@ -184,7 +198,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 //        view.backgroundColor = .white
         view.addSubview(logInScrollView)
         logInScrollView.addSubview(contentView)
-        contentView.addSubviews(logo, textFieldsStackView, enterButton, variableButton)
+        contentView.addSubviews(
+            logo,
+            textFieldsStackView,
+            enterButton,
+            variableButton,
+            biometricsAuthorizationButton
+        )
         textFieldsStackView.addArrangedSubview(loginTextField)
         textFieldsStackView.addArrangedSubview(passwordTextField)
         
@@ -219,6 +239,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             make.top.equalTo(enterButton.snp.bottom).offset(Constants.margin / 2)
             make.height.equalTo(20)
         }
+        
+        biometricsAuthorizationButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(variableButton.snp.bottom).offset(Constants.margin)
+        }
     }
         
     //MARK: SUBMETHODS
@@ -228,6 +253,28 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         isUserExists!.toggle()
     }
     
+    @objc
+    private func biometricsAuthorizationButtonTapped() {
+        LocalAuthorizationService.shared.authorizeIfPossible { [weak self] success, error  in
+            guard let self = self else { return }
+            if success {
+                self.pushProfileViewController()
+            } else if let error = error {
+                self.showAlertController("alertmessage.biometric".localized + error.localizedDescription)
+            }
+        }
+    }
+    
+    private func showAlertController(_ description: String) {
+        let alertController = UIAlertController(
+            title: "alertLabel.error".localized,
+            message: description,
+            preferredStyle: .alert)
+        
+        let acceptAction = UIAlertAction(title: "alertButton.ok".localized, style: .default) { _ in }
+        alertController.addAction(acceptAction)
+        present(alertController, animated: true)
+    }
     
     @objc
     private func keyboardShow(_ notification: Notification){

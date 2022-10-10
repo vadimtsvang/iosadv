@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2B76A628F401AF0001CFD6 /* LocalAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B76A528F401AF0001CFD6 /* LocalAuthorizationService.swift */; };
 		D500D731287F594F00ED1FBA /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D730287F594F00ED1FBA /* FavoriteViewController.swift */; };
 		D500D734287F598E00ED1FBA /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D733287F598E00ED1FBA /* FavoriteCoordinator.swift */; };
 		D500D736287F59D200ED1FBA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500D735287F59D200ED1FBA /* CoreDataManager.swift */; };
@@ -125,6 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F2B76A528F401AF0001CFD6 /* LocalAuthorizationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationService.swift; sourceTree = "<group>"; };
 		D500D730287F594F00ED1FBA /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		D500D733287F598E00ED1FBA /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		D500D735287F59D200ED1FBA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -571,12 +573,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		D5B6B25728D64958006E0A50 /* Notifications */ = {
+		D5B6B25728D64958006E0A50 /* Notifications & Authorization */ = {
 			isa = PBXGroup;
 			children = (
 				D5B6B25828D6496C006E0A50 /* LocalNotificationsService.swift */,
+				1F2B76A528F401AF0001CFD6 /* LocalAuthorizationService.swift */,
 			);
-			path = Notifications;
+			path = "Notifications & Authorization";
 			sourceTree = "<group>";
 		};
 		D5BDB01728705D470089D530 /* Facades */ = {
@@ -656,7 +659,7 @@
 		D5ED095E27B5A423007F70C6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				D5B6B25728D64958006E0A50 /* Notifications */,
+				D5B6B25728D64958006E0A50 /* Notifications & Authorization */,
 				D500D737287F5CF400ED1FBA /* CoreData */,
 				D54536FD287AE0ED00B5A64D /* UserValidation */,
 				D5E9222B2816A84200748286 /* AppState */,
@@ -880,6 +883,7 @@
 				D56E239928CA00F9002E094D /* ColorTheme.swift in Sources */,
 				D5A529F02854ABFD00A0DB32 /* VideoViewController.swift in Sources */,
 				D5A52A092854C6E900A0DB32 /* VideoCoordinator.swift in Sources */,
+				1F2B76A628F401AF0001CFD6 /* LocalAuthorizationService.swift in Sources */,
 				D54536FA287AE0A800B5A64D /* LoginFactory.swift in Sources */,
 				D5DF549928577F6800FECC98 /* User.swift in Sources */,
 				D562464627C826350022DDFC /* Constants.swift in Sources */,
